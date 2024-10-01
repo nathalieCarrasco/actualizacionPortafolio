@@ -1,6 +1,6 @@
 # ¡Bienvenidos a Mi Proyecto de Migración a Next.js! 🌟
 
-Hola a todos, soy [Tu Nombre] y estoy emocionado de compartir mi viaje de migración de una aplicación construida con HTML, CSS y JavaScript a una hermosa y dinámica aplicación utilizando **Next.js**. En este proyecto, he trabajado arduamente para mantener la esencia y los estilos originales mientras mejoro la carga y la responsividad.
+Hola a todos, soy Nathalie y estoy emocionada de compartir mi viaje de migración de una aplicación construida con HTML, CSS y JavaScript a una hermosa y dinámica aplicación utilizando **Next.js**. En este proyecto, he trabajado arduamente para mantener la esencia y los estilos originales mientras mejoro la carga y la responsividad.
 
 ## 🚀 ¿Por qué Migrar a Next.js?
 
