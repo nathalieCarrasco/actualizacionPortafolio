@@ -1,19 +1,20 @@
-'use client';
+// TypingEffect.tsx
 
 import React, { useEffect, useState } from 'react';
 
 interface TypingEffectProps {
   text: string;
-  speed?: number; // Velocidad de escritura en milisegundos
+  speed?: number;
 }
 
 const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 100 }) => {
   const [displayedText, setDisplayedText] = useState<string>('');
+  const [showCursor, setShowCursor] = useState<boolean>(true);
 
   useEffect(() => {
-    if (!text) return; // Si text es undefined o vacío, no hacer nada
+    if (!text) return;
     let index = 0;
-    setDisplayedText(''); // Reiniciar el texto mostrado
+    setDisplayedText('');
 
     const typingInterval = setInterval(() => {
       if (index < text.length) {
@@ -24,13 +25,22 @@ const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 100 }) => {
       }
     }, speed);
 
-    return () => clearInterval(typingInterval);
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+
+    return () => {
+      clearInterval(typingInterval);
+      clearInterval(cursorInterval);
+    };
   }, [text, speed]);
 
-  // Asegúrate de que el texto mostrado no sea undefined
-  return <span>{displayedText}</span>;
+  return (
+    <span>
+      {displayedText}
+      {showCursor && <span className="text-white">|</span>}
+    </span>
+  );
 };
 
 export default TypingEffect;
-
-

@@ -7,7 +7,6 @@ import { FaJsSquare, FaVuejs, FaReact, FaNodeJs, FaAws } from "react-icons/fa";
 import { SiExpress, SiMysql, SiSpringboot, SiMongodb, SiNextdotjs, SiJest } from "react-icons/si"; 
 import { SiHtml5, SiCss3, SiSass } from "react-icons/si"; 
 
-// Objeto con los datos de las habilidades en iconos
 const skillsData = {
   frontend: [
     { name: "JavaScript", icon: <FaJsSquare className="text-yellow-500 text-5xl transition-transform transform hover:rotate-180 duration-500" /> },
@@ -43,13 +42,11 @@ const skillsData = {
   ],
 };
 
-// Definir un tipo para las claves de skillsData
 type SkillCategory = keyof typeof skillsData;
 
 export default function About() {
   const [selectedSkill, setSelectedSkill] = useState<SkillCategory | null>(null);
 
-  // Función para mostrar los íconos según la habilidad seleccionada en botones
   const renderIcons = (category: SkillCategory) => {
     return skillsData[category].map((skill) => (
       <div key={skill.name} className="flex flex-col items-center">
@@ -61,6 +58,7 @@ export default function About() {
 
   return (
     <div className="mainContenedor bg-black text-primary py-12 mb-4 h-screen">
+      {/* Inicio de la Sección de Presentación */}
       <div className="container mx-auto">
         <div className="flex flex-wrap items-center justify-center">
           <div className="w-full md:w-1/3 flex justify-center mb-8 md:mb-0">
@@ -76,7 +74,7 @@ export default function About() {
               Nathalie Carrasco
             </h3>
             <h4 className="text-xl text-secondary mb-6">
-              <TypingEffect text="Desarrolladora Web Full Stack" speed={100} />
+              <TypingEffect text="Web Developer" speed={100} />
             </h4>
             <p className="text-primary mb-6">
               Con experiencia en el ecosistema MERN (MongoDB, Express.js, React.js, Node.js) y en el desarrollo de aplicaciones web. Diseño soluciones que se ajustan a las necesidades de los clientes, maximizando el uso de la nube y aplicando medidas de seguridad robustas. Actualmente, me enfoco en ciberseguridad, adquiriendo habilidades prácticas en detección y configuración. Estoy motivada por enfrentar desafíos técnicos y colaborar con equipos talentosos para lograr soluciones innovadoras.
@@ -98,7 +96,9 @@ export default function About() {
           </div>
         </div>
       </div>
+      {/* Fin de la Sección de Presentación */}
 
+      {/* Inicio de la Sección de Habilidades */}
       <div className="skills bg-gris py-12 h-screen" id="skills">
         <section className="container mx-auto text-center">
           <h2 className="text-3xl font-bold text-destacado mb-4">Mis Skills</h2>
@@ -128,12 +128,90 @@ export default function About() {
               General
             </button>
           </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {selectedSkill ? renderIcons(selectedSkill) : null}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {(selectedSkill ? renderIcons(selectedSkill) : null) || renderIcons('frontend')}
           </div>
         </section>
       </div>
+      {/* Fin de la Sección de Habilidades */}
+
+ {/* Inicio de la Sección de Certificaciones */}
+<div className="certificaciones bg-black text-primary py-12 h-screen">
+  <section className="container mx-auto text-center ">
+    <h2 className="text-3xl font-bold text-destacado mb-4">Certificaciones</h2>
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {/* Certificación 1 */}
+      <div className="text-center">
+        <div className="relative group">
+          <img src="/img/certificaciones/IBM.png" alt="Data Analytics and Visualization Camp" className="mx-auto mb-2 w-20 h-20 transition duration-300 ease-in-out transform group-hover:brightness-110" />
+        </div>
+        <h3 className="text-xl text-white">Data Analytics and Visualization Camp</h3>
+        <p className="text-gray-400">IBM SkillsBuild</p>
+      </div>
+      {/* Certificación 2 */}
+      <div className="text-center">
+        <div className="relative group">
+          <img src="/img/certificaciones/ReStar.png" alt="AWS re/Start Graduate" className="mx-auto mb-2 w-20 h-20 transition duration-300 ease-in-out transform group-hover:brightness-110" />
+        </div>
+        <h3 className="text-xl text-white">AWS re/Start Graduate</h3>
+        <p className="text-gray-400">Amazon Web Services Training</p>
+      </div>
+      {/* Certificación 3 */}
+      <div className="text-center">
+        <div className="relative group">
+          <img src="/img/certificaciones/Academy-practitioner.png" alt="AWS Academy Graduate - Cloud Foundations" className="mx-auto mb-2 w-20 h-20 transition duration-300 ease-in-out transform group-hover:brightness-110" />
+        </div>
+        <h3 className="text-xl text-white">AWS Academy Graduate</h3>
+        <p className="text-gray-400">Cloud Foundations</p>
+      </div>
+      {/* Certificación 4 */}
+      <div className="text-center">
+        <div className="relative group">
+          <img src="/img/certificaciones/practitioner.png" alt="AWS Certified Cloud Practitioner" className="mx-auto mb-2 w-20 h-20 transition duration-300 ease-in-out transform group-hover:brightness-110" />
+        </div>
+        <h3 className="text-xl text-white">AWS Certified Cloud Practitioner</h3>
+        <p className="text-gray-400">Amazon Web Services Training</p>
+      </div>
+      {/* Certificación 5 */}
+      <div className="text-center">
+        <div className="relative group">
+          <img src="/img/certificaciones/academy-saa.png" alt="AWS Academy Graduate - Cloud Architecting" className="mx-auto mb-2 w-20 h-20 transition duration-300 ease-in-out transform group-hover:brightness-110" />
+        </div>
+        <h3 className="text-xl text-white">AWS Academy Graduate</h3>
+        <p className="text-gray-400">Cloud Architecting</p>
+      </div>
+      {/* Certificación 6 */}
+      <div className="text-center">
+        <div className="relative group">
+          <img src="/img/certificaciones/seguridad.png" alt="Bootcamp en Seguridad de la Información y Ciberseguridad" className="mx-auto mb-2 w-20 h-20 transition duration-300 ease-in-out transform group-hover:brightness-110" />
+        </div>
+        <h3 className="text-xl text-white">Bootcamp en Seguridad</h3>
+        <p className="text-gray-400">USACH</p>
+      </div>
+      {/* Certificación 7 */}
+      <div className="text-center">
+        <div className="relative group">
+          <img src="/img/certificaciones/ceberdefensa.png" alt="Masterclass - Pentesting Web Avanzado" className="mx-auto mb-2 w-20 h-20 transition duration-300 ease-in-out transform group-hover:brightness-110" />
+        </div>
+        <h3 className="text-xl text-white">Masterclass - Pentesting</h3>
+        <p className="text-gray-400">USACH</p>
+      </div>
+      {/* Certificación 8 */}
+      <div className="text-center">
+        <div className="relative group">
+          <img src="/img/certificaciones/seguridad.png" alt="Masterclass - Ciberdefensa contra Ransomware" className="mx-auto mb-2 w-20 h-20 transition duration-300 ease-in-out transform group-hover:brightness-110" />
+        </div>
+        <h3 className="text-xl text-white">Masterclass - Ciberdefensa</h3>
+        <p className="text-gray-400">USACH</p>
+      </div>
+    </div>
+  </section>
+</div>
+{/* Fin de la Sección de Certificaciones */}
+
+
+
+
     </div>
   );
 }
